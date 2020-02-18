@@ -2,7 +2,7 @@
 
 ## Project Overview 
 
-This Project was completed in order to gain more understaning of the interaction of the OSI's Application layer. 
+This Project was completed in order to gain more understanding of the interaction of the OSI's Application layer. 
 
 
 ## The Application Layer 

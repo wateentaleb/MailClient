@@ -5,7 +5,7 @@
 This Project was completed in order to gain more understaning of the interaction of the OSI's Application layer. 
 
 
-### `Application Layer`
+## The Application Layer 
 
 A little overview of the Application Layer in the OSI model, 
 
@@ -43,6 +43,27 @@ This is the only change that needs to be made to run,
 username = "talebwateen@gmail.com"
 password = "xxxxxx"
 `````````````
+
+Encoding the username
+ `````````````
+ encodedUsername = username.encode()
+`````````````
+
+Encrypting it into base64 text because thats the language gmail server communicate in
+ `````````````
+base64User = base64.b64encode(encodedUsername)
+`````````````
+
+Encoding password
+ `````````````
+encodedPassword = password.encode()
+`````````````
+
+Encrypting it into base64 text because thats the language gmail server communicate in
+ `````````````
+base64Password = base64.b64encode(encodedPassword)
+`````````````
+
 
 
 

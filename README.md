@@ -64,6 +64,30 @@ Encrypting it into base64 text because thats the language gmail server communica
 base64Password = base64.b64encode(encodedPassword)
 `````````````
 
+Sending HELO command 
+ `````````````
+heloCommand = 'HELO Alice\r\n'
+clientSocket.send(heloCommand.encode())
+`````````````
 
+Starting Secure Connection Request to the Gmail Servers 
 
+ `````````````
+tlsMessage = 'STARTTLS\r\n'
+clientSocket.send(tlsMessage.encode())
+`````````````
+
+Creating a SSL wrapper on our socket to maintain a secured connection to Google's Mail Servers 
+
+ `````````````
+sslSocket = ssl.wrap_socket(clientSocket, ssl_version=ssl.PROTOCOL_SSLv23)
+sslCommand = 'AUTH LOGIN\r\n'
+sslSocket.send(sslCommand.encode())
+`````````````
+
+Now that a secure connection has been established with Google's Mail Servers, the data sent and received are in ecrypted base64 text. The wrapped socket will need to be used from this point on whenever receiving/sending data with the Gmail's Servers such as: 
+
+ `````````````
+sslSocket.send(base64Password+"\r\n".encode())
+`````````````
 
